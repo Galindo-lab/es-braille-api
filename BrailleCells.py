@@ -1,7 +1,7 @@
 import ctypes
 
 class BrailleCells:
-    functions = ctypes.CDLL("./shared/libtest.so")
+    functions = ctypes.CDLL("shared/libtest.so")
     MAX_OUTPUT_SIZE = 255
 
     @classmethod
