@@ -1,6 +1,5 @@
 import ctypes
 
-
 class BrailleCells:
     functions = ctypes.CDLL("./shared/libtest.so")
     MAX_OUTPUT_SIZE = 255
@@ -47,6 +46,8 @@ class BrailleCells:
             return list()
 
         output = []
+        
+        # https://stackoverflow.com/questions/61294630/ctypes-passing-a-string-as-a-pointer-from-python-to-c
         bytes_string = bytes(string_to_convert, 'ascii')
         ibuf = ctypes.create_string_buffer(bytes_string,
                                            size=cls.MAX_OUTPUT_SIZE)
